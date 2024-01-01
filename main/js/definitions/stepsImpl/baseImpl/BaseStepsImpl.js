@@ -1,8 +1,8 @@
 const Waits = require('../../../core/web/base/Waits')
-const Driver = require("../../../core/web/base/Driver");
-const Objects = require("../../../core/data/Objects");
-const BrowserHandling = require('../../../core/web/browser/BrowserHandling')
+const Driver = require("../../../core/web/base/Driver")
+const Objects = require("../../../core/data/Objects")
 const Constants = require('../../../utilities/Constants')
+const BrowserHandling = require('../../../core/web/browser/BrowserHandling')
 
 class BaseStepsImpl {
 
@@ -12,12 +12,11 @@ class BaseStepsImpl {
     constants = null
     browserhandling = null
 
-
     constructor() {
         this.#initializeDriver()
     }
 
-    #initializeDriver(driver) {
+    #initializeDriver() {
         this.waits = new Waits()
         this.driver = new Driver()
         this.objects = new Objects()
