@@ -1,8 +1,8 @@
-const { Given, Then, When } = require('@cucumber/cucumber');
+const { Given, Then, When, setWorldConstructor} = require('@cucumber/cucumber');
 let BaseStepsImpl = require('../../stepsImpl/baseImpl/BaseStepsImpl')
 
-let baseStepsImpl = new BaseStepsImpl()
+setWorldConstructor(BaseStepsImpl)
 
 Then('I wait for {int} seconds', async function (seconds) {
-    await baseStepsImpl.waits.forSecond(seconds).then()
+    await this.waits.forSecond(seconds).then()
 });

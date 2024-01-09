@@ -1,12 +1,15 @@
 const BaseStepsImpl = require('../baseImpl/BaseStepsImpl')
 
-class BrowserStepsImpl extends BaseStepsImpl {
+class BrowserStepsImpl {
 
-    constructor() {
-        super();
+    driver = null
+
+    constructor(drivers) {
+        this.driver = drivers
     }
 
     async iOpenTheBrowser(browser) {
+
         if(browser === 'default')
             await this.driver.open(this.constants.BROWSER_TYPE)
         else

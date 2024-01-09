@@ -1,9 +1,11 @@
 const BaseStepsImpl = require('../baseImpl/BaseStepsImpl')
 
-class NavigationStepsImpl extends BaseStepsImpl {
+class NavigationStepsImpl {
 
-    constructor() {
-        super();
+    browserhandling = null
+
+    constructor(browserhandlings) {
+        this.browserhandling = browserhandlings
     }
 
     async iNavigateTo(url) {

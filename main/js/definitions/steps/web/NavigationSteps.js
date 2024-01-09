@@ -1,8 +1,10 @@
-const { Then, When } = require('@cucumber/cucumber');
+const { Then, When, setWorldConstructor} = require('@cucumber/cucumber');
 const NavigationStepsImpl = require('../../stepsImpl/webImpl/NavigationStepsImpl')
+const BaseStepsImpl = require("../../stepsImpl/baseImpl/BaseStepsImpl");
 
-let navigationStepsImpl = new NavigationStepsImpl()
+setWorldConstructor(BaseStepsImpl)
 
 Then('I navigate to {string} page', async function (url) {
+    let navigationStepsImpl = new NavigationStepsImpl(this.browserhandling)
     await navigationStepsImpl.iNavigateTo(url)
 });
