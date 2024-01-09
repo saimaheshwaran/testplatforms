@@ -8,7 +8,7 @@ class Objects {
     fields = null
 
     constructor() {
-        this.#initialize().then(r => {})
+        this.#initialize().then(() => {})
     }
 
     async #initialize() {
@@ -20,9 +20,9 @@ class Objects {
 
     async get(objName) {
         let splits = objName.split('.')
-        let keyValue = {};
-        for (let locator in this.fields[splits[0]][splits[1]]) {
-            if (!(locator === 'value') || (locator === '')) {
+        let keyValuePair = {};
+        for (let locator in this.fields[splits[0]][splits[1]])
+            if (!(locator === 'value') || (locator === ''))
                 switch (locator.toLowerCase()) {
                     case 'id':
                     case 'css':
@@ -32,23 +32,20 @@ class Objects {
                     case 'linktext':
                     case 'classname':
                     case 'partiallinktext':
-                        keyValue[locator.toLowerCase()] = this.fields[splits[0]][splits[1]][locator]
-                        return keyValue;
+                        keyValuePair[locator.toLowerCase()] = this.fields[splits[0]][splits[1]][locator]
+                        return keyValuePair;
                 }
-            }
-        }
     }
 
     async getValue(objName) {
         let splits = objName.split('.')
         let keyValue = {};
         for (let locator in this.fields[splits[0]][splits[1]])
-            if (!(locator === '')) {
+            if (!(locator === ''))
                 switch (locator.toLowerCase()) {
                     case 'value':
                         return this.fields[splits[0]][splits[1]][locator]
                 }
-            }
     }
 }
 

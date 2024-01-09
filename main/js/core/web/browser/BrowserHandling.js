@@ -17,11 +17,11 @@ class BrowserHandling {
     }
 
     async forward() {
-        await this.#driver.get().forward()
+        await this.#driver.get().navigate().forward()
     }
 
     async refresh() {
-        await this.#driver.get().refresh()
+        await this.#driver.get().navigate().refresh()
     }
 
 }
