@@ -1,11 +1,11 @@
-const Waits = require('../../../core/web/base/Waits')
-const Driver = require("../../../core/web/base/Driver")
-const Objects = require("../../../core/data/Objects")
-const Constants = require('../../../utilities/Constants')
-const BrowserHandling = require('../../../core/web/browser/BrowserHandling')
 const {World} = require("@cucumber/cucumber");
+const Waits = require("../../../core/web/base/Waits");
+const Driver = require("../../../core/web/base/Driver");
+const Objects = require("../../../core/data/Objects");
+const Constants = require("../../../utilities/Constants");
+const BrowserHandling = require("../../../core/web/browser/BrowserHandling");
 
-class BaseStepsImpl extends World {
+class StepsBase extends World {
 
     waits = null
     driver = null
@@ -17,7 +17,7 @@ class BaseStepsImpl extends World {
         super(options)
     }
 
-    async initializeDriver(scenario) {
+    async initialize() {
         this.waits = new Waits()
         this.driver = new Driver()
         this.objects = new Objects()
@@ -27,4 +27,4 @@ class BaseStepsImpl extends World {
 
 }
 
-module.exports = BaseStepsImpl
+module.exports = StepsBase

@@ -1,16 +1,16 @@
 const { Given, Then, When, setWorldConstructor} = require('@cucumber/cucumber');
-const BrowserStepsImpl = require('../../stepsImpl/webImpl/BrowserStepsImpl')
-const BaseStepsImpl = require("../../stepsImpl/baseImpl/BaseStepsImpl");
+const StepsBase = require("../base/StepsBase");
 
-setWorldConstructor(BaseStepsImpl)
+setWorldConstructor(StepsBase)
 
 Given('I open {string} browser', async function (browser) {
-    let browserStepsImpl = new BrowserStepsImpl(this.driver)
-    await browserStepsImpl.iOpenTheBrowser(browser)
+    if(browser === 'default')
+        await this.driver.open(this.constants.BROWSER_TYPE)
+    else
+        await this.driver.open(browser)
 });
 
 Then('I close the browser', async function (browser) {
-    let browserStepsImpl = new BrowserStepsImpl(this.driver)
-    await browserStepsImpl.iCloseTheBrowser()
+    await this.driver.close()
 });
 
