@@ -1,21 +1,25 @@
-const {Builder, WebDriver} = require('selenium-webdriver');
+const {Builder, WebDriver, By, until} = require('selenium-webdriver');
+const Element = require('Element')
 
 class Waits {
 
-    constructor() {
+    #driver = null
+    #element = null
+
+    constructor(driver) {
+        this.#driver = driver
+        this.#element = new Element(driver)
     }
 
-    async forSecond(sec) {
-        await new Promise(resolve => setTimeout(resolve, sec * 1000))
+    async waitForAjaxCall(locator) {
+        let by = await this.#element.getBy(locator)
+        let elements = await this.#driver.get().findElements(by)
+        let size = await elements.size()
+        if(size > 0)
+            await this.#driver.get().wait(until.elementLocated(by),10000)
+
     }
 
-    async forMinute(min) {
-        await new Promise(resolve => setTimeout(resolve, min * 60 * 1000))
-    }
-
-    async forMilliSecond(milli) {
-        await new Promise(resolve => setTimeout(resolve, milli))
-    }
 }
 
 module.exports = Waits

@@ -1,5 +1,5 @@
 const {World} = require("@cucumber/cucumber");
-const Waits = require("../../../core/web/base/Waits");
+const Waits = require("../../../utilities/Waits");
 const Driver = require("../../../core/web/base/Driver");
 const Objects = require("../../../core/data/Objects");
 const Constants = require("../../../utilities/Constants");

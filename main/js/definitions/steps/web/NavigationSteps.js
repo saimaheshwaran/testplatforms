@@ -26,3 +26,23 @@ Then(/I refresh page$/, async function () {
 Then(/I switch to new window$/, async function () {
 
 });
+
+Then(/I switch to previous window$/, async function () {
+
+});
+
+Then(/I switch to new tab$/, async function () {
+
+});
+
+Then(/I switch to previous tab$/, async function () {
+
+});
+
+Then(/I switch to window with title (.+)$/, async function (title) {
+
+});
+
+Then(/I close new window$/, async function () {
+
+});

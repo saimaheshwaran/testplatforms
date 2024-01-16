@@ -1,6 +1,7 @@
 const Driver = require('../../../main/js/core/web/base/Driver')
 const Browsing = require('../../../main/js/core/web/browser/BrowserHandling')
-const Waits = require("../../../main/js/core/web/base/Waits")
+const Waits = require("../../../main/js/utilities/Waits")
+const Constants = require("../../../main/js/utilities/Constants")
 const test = require('node:test')
 
 test('Driver chrome open/close test', async (t) => {
@@ -25,8 +26,9 @@ test('Browser Navigation test', async (t) => {
     driver = new Driver()
     wait = new Waits()
     browsing = new Browsing(driver)
+    constants = new Constants()
 
-    await driver.open('chrome')
+    await driver.open(constants.BROWSER_TYPE)
     await browsing.toUrl('http://www.google.com/')
     await wait.forSecond(2)
     await browsing.toUrl('http://www.youtube.com/')

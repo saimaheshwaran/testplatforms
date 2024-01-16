@@ -1,5 +1,5 @@
 const {By} = require('selenium-webdriver')
-const Waits = require('./Waits')
+const Waits = require('../../../utilities/Waits')
 
 class Element {
 
@@ -16,6 +16,10 @@ class Element {
         this.#element = this.#driver.get().findElement(locator)
         await this.scrollTo(this.#element)
         return this.#element
+    }
+
+    async getBy(locator) {
+        return new By(locator.key, locator.value)
     }
 
     async scrollTo(element) {
