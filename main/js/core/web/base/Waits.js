@@ -12,7 +12,7 @@ class Waits {
     }
 
     async waitForAjaxCall(locator) {
-        let by = await this.#element.getBy(locator)
+        let by  = await this.#element.getBy(locator)
         let elements = await this.#driver.get().findElements(by)
         let size = await elements.size()
         if(size > 0)

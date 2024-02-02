@@ -9,7 +9,7 @@ Feature: Test Feature 1
     And I navigate forward
 
   Scenario: Test 1
-    Given I open chrome browser
+    Given I open firefox browser
     When I navigate to youtube.url
     Then I navigate to "http://www.google.com/"
     And I navigate back

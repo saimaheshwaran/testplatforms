@@ -18,10 +18,10 @@ class StepsBase extends World {
     }
 
     async initialize() {
-        this.waits = new Waits()
         this.driver = new Driver()
         this.objects = new Objects()
         this.constants = new Constants()
+        this.waits = new Waits(this.driver)
         this.browserhandling = new BrowserHandling(this.driver)
     }
 
