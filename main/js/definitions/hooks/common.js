@@ -1,5 +1,5 @@
-const { setWorldConstructor, Before } = require('@cucumber/cucumber');
-const StepsBase = require("../steps/base/StepsBase");
+const { setWorldConstructor, Before } = require('@cucumber/cucumber')
+const StepsBase = require("../steps/base/StepsBase")
 
 setWorldConstructor(StepsBase)
 

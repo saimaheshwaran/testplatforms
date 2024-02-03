@@ -1,4 +1,4 @@
-const {error} = require("selenium-webdriver");
+const {error} = require("selenium-webdriver")
 
 class WindowHandling {
 
@@ -23,8 +23,10 @@ class WindowHandling {
 
     async switchToNewWindow() {
         this.#previous_handle = await this.#driver.get().getWindowHandle()
+        console.log('Previous handle = ' + this.#previous_handle)
         for(let winHandle in await this.#driver.get().getAllWindowHandles())
             this.#last_handle = winHandle
+        console.log('Last Handle = ' + this.#last_handle)
         await this.#driver.get().switchTo().window(this.#last_handle)
     }
 
@@ -48,4 +50,10 @@ class WindowHandling {
             await this.#driver.get().switchTo().window(title)
     }
 
+    async closeNewWindow() {
+        await this.#driver.get().close()
+    }
+
 }
+
+module.exports = WindowHandling

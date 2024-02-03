@@ -1,4 +1,4 @@
-const Driver = require("../base/Driver");
+const Driver = require("../base/Driver")
 
 class BrowserHandling {
 
